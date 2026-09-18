@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Activity, Bird, CalendarDays, Droplets, Egg, Feather, Gauge, Plus, RefreshCw, Sprout, TriangleAlert, Wheat } from 'lucide-react';
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'https://poultryflow-api.rf.gd/backend').replace(/\/$/, '');
 const today = new Date().toISOString().slice(0, 10);
 const emptyBatch = { batch_name: '', initial_birds: '', start_date: today };
 const emptyLog = { batch_id: '', log_date: today, feed_consumed_kg: '', water_consumed_liters: '', mortality: '', eggs_collected: '' };

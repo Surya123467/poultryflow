@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$allowedOrigins = array_filter(array_map('trim', explode(',', getenv('ALLOWED_ORIGINS') ?: '*')));
+$allowedOrigins = array_filter(array_map('trim', explode(',', getenv('ALLOWED_ORIGINS') ?: 'https://poultryflow-ten.vercel.app')));
 $requestOrigin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array('*', $allowedOrigins, true)) {
     header('Access-Control-Allow-Origin: *');
@@ -34,11 +34,11 @@ function validDate(string $value): bool {
     return $date !== false && $date->format('Y-m-d') === $value;
 }
 
-$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbHost = getenv('DB_HOST') ?: 'sql210.infinityfree.com';
 $dbPort = getenv('DB_PORT') ?: '3306';
-$dbName = getenv('DB_NAME') ?: 'poultryflow';
-$dbUser = getenv('DB_USER') ?: 'root';
-$dbPass = getenv('DB_PASS') ?: '';
+$dbName = getenv('DB_NAME') ?: 'if0_42947866_poultryflow';
+$dbUser = getenv('DB_USER') ?: 'if0_42947866';
+$dbPass = getenv('DB_PASS') ?: '__SET_IN_INFINITYFREE_FILE_MANAGER__';
 
 try {
     $pdo = new PDO("mysql:host={$dbHost};port={$dbPort};dbname={$dbName};charset=utf8mb4", $dbUser, $dbPass, [
